@@ -1,66 +1,83 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <header>
+<html lang="en">
+  <header></header>
+  <body>
+      <div id = "textContent">
+      </div>
+    <button id="rock">rock</button>
+    <button id="paper">paper</button>
+    <button id="scissors">scissors</button>
+  </body>
+  <script>
+    const rock = document.querySelector("#rock");
+    const paper = document.querySelector("#paper");
+    const scissors = document.querySelector("#scissors");
 
-    </header>
-    <body>
+    function computerPlay() {
+      number = 3;
+      let rand = Math.random() * number;
+      const rock = "rock";
+      const scissors = "scissors";
+      const paper = "paper";
 
-    </body>
-    <script>
-        function computerPlay() {
-            number = 3;
-            let rand = Math.random() * number;
-            const rock = "rock";
-            const scissors = "scissors"
-            const paper = "paper"
+      rand = Math.floor(rand);
+      console.log(rand);
+      if (rand == 2) {
+        return rock;
+      } else if (rand == 1) {
+        return scissors;
+      } else if (rand == 0) {
+        return paper;
+      }
+    }
 
-            rand = Math.floor(rand);
-            console.log(rand);
-            if (rand == 2) {
-                return rock;
-            }
-            else if(rand == 1) {
-                return scissors;
-            }
-            else if(rand == 0) {
-                return paper;
-            }
-        }
-        /*
+    rock.addEventListener("click", () => newRound("rock", computerPlay()));
+    paper.addEventListener("click", () => newRound("paper", computerPlay()));
+    scissors.addEventListener("click", () => newRound("scissors", computerPlay()));
+
+    /*
         ny rond skapas med playerselection och computerselection
         playerselection omvandlas till småbokstäver
         om player selection = rock och computer selection = paper
         */
-        function newRound(playerSelection, computerSelection) {
-            let answer = playerSelection.toLowerCase();
-            console.log(answer);
-            console.log(computerSelection);
-            if (answer == computerSelection) {
-                return "Draw";
-            }
-            else if (answer == "rock" && computerSelection == "paper" ) {
-                return "you lost";
-            }
-            else if (answer == "rock" && computerSelection == "scissors" ) {
-                return "you win";
-            }
-            else if (answer == "scissors" && computerSelection == "paper" ) {
-                return "you win";
-            }
-            else if (answer == "scissors" && computerSelection == "rock" ) {
-                return "you lost";
-            }
-            else if (answer == "paper" && computerSelection == "scissors" ) {
-                return "you lost";
-            }
-            else if (answer == "paper" && computerSelection == "rock" ) {
-                return "you win";
-            }
+    function newRound(playerSelection, computerSelection) {
+      let answer = playerSelection.toLowerCase();
+      const div = document.querySelector("#textContent");
+      console.log(answer);
+      console.log(computerSelection);
+      
+      if (answer == computerSelection) {
+        return div.textContent = "draw";
+      } 
+      else if (answer == "rock" && computerSelection == "paper") {
+        return div.textContent = "you lost";
+      } 
+      else if (answer == "rock" && computerSelection == "scissors") {
+        return div.textContent = "you win";
+      } 
+      else if (answer == "scissors" && computerSelection == "paper") {
+        return div.textContent = "you win";
+      } 
+      else if (answer == "scissors" && computerSelection == "rock") {
+        return div.textContent = "you lost";
+      } 
+      else if (answer == "paper" && computerSelection == "scissors") {
+        return div.textContent = "you lost";
+      } 
+      else if (answer == "paper" && computerSelection == "rock") {
+        return div.textContent = "you win";
+      }
+    }
+    function startGame(newRound){
+        let playerScore = 0;
+        let computerScore = 0;
+        while (count <= 5){
         }
-        console.log(newRound("RocK", computerPlay()));
-        const cats = ['Leopard', 'Serval', 'Jaguar', 'Tiger', 'Caracal', 'Lion'];
+    }
+    console.log(newRound("RocK", computerPlay()));
+       /* const cats = ['Leopard', 'Serval', 'Jaguar', 'Tiger', 'Caracal', 'Lion'];
 
         const upperCats = cats.map();
-        console.log(upperCats);
-    </script>
+        console.log(upperCats);*/
+  </script>
 </html>
